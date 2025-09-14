@@ -1,5 +1,8 @@
 import discord
 from discord.ext import commands
+from flask import Flask
+import threading
+import os
 
 # ----- AYARLAR -----
 WELCOME_ROLE_ID = 1416554944915439677  # Yeni Üye rolünün ID'si
@@ -10,6 +13,21 @@ BANNER_PATH = "banner.png"  # Hoş geldin banner görseli
 TOKEN = "BURAYA_TOKENIN"  # <-- Token burada
 # -------------------
 
+# --- FLASK SERVER ---
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Bot Aktif"
+
+def run_flask():
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
+
+# Flask serveri ayrı thread'de başlat
+threading.Thread(target=run_flask).start()
+
+# --- DISCORD BOT ---
 intents = discord.Intents.default()
 intents.members = True
 
@@ -71,4 +89,5 @@ async def on_member_join(member):
     )
 
 # --- BOTU ÇALIŞTIR ---
-bot.run("MTQxNjc1Nzg4MTk1NjczMzAyMA.GHAQ24.1NxxrcaBej99YKsL3U4xfY8b0bqIPlT9_BPCnw")
+bot.run(TOKEN)
+
