@@ -89,5 +89,5 @@ async def on_member_join(member):
     )
 
 # --- BOTU ÇALIŞTIR ---
-bot.run(TOKEN)
+bot.run("MTQxNjc1Nzg4MTk1NjczMzAyMA.GUOaEg.wODprY14XCvVcblE4YmiWMwggEAGKN4JMu6-2E")
 
