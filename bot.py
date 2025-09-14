@@ -70,5 +70,5 @@ async def on_member_join(member):
     await welcome_channel.send(content=f"Hoş geldin {member.mention} 🎉", file=file)
     await welcome_channel.send(content="Sunucumuza ne amaç ile katıldınız?", view=PurposeView(member))
 
-bot.run(TOKEN)
+bot.run("MTQxNjc1Nzg4MTk1NjczMzAyMA.GwlaIB.q14V2Rv6qqKz9uvaMyROo8vbhCNFxop9GKInq0")
 
